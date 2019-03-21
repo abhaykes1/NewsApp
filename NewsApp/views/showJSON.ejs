@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Headlines</title>
+  <style>
+    img.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p.padd {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <%
+for(var i=0; i< content.articles.length ; i++ ){
+    %>
+  <h2>
+    <center> <b>
+        <%= content.articles[i].title %> </b></center>
+  </h2>
+  <p class="padd">
+    <%= content.articles[i].description %>
+  </p>
+
+  <img class="center" src="<%=content.articles[i].urlToImage %>" alt="image" width="400" height="379">
+  <p class="padd">
+    <%= content.articles[i].content %><a href="<%=content.articles[i].url %>">more</a>
+  </p>
+  <p> <b> Time </b>:
+    <%= content.articles[i].publishedAt %> <br />------------------------------------
+    <br /><br /> </p>
+  <% } %>
+  <p>
+    <%
+  for(var i=0; i< content.totalResults/20 ; i++ ){
+    %>
+    <% var my_link = "http://localhost:8080" +content2   %>
+    <a href = my_link >
+      <%= i+1 %> <a/>
+      <% } %>
+  </p> 
+</body>
+
+</html>
